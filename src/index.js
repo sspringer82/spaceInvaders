@@ -18,3 +18,6 @@ e3s2.drawShape2();
 
 const saucer = new Saucer(ctx, 300, 10);
 saucer.draw();
+
+const canon = new Canon(ctx, 300, 130);
+canon.draw();
