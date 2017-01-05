@@ -13,4 +13,8 @@ class Enemy {
     lineTo(x, y) {
         this.ctx.lineTo(this.offsetX + this.length * x, this.offsetY + this.length * y);
     }
+
+    fillRect(x, y, width, height) {
+        this.ctx.fillRect(this.offsetX + this.length * x, this.offsetX + this.length * y, this.length * width, this.length * height);
+    }
 }
