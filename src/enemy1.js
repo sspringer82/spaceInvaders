@@ -103,7 +103,6 @@ class Enemy1 extends Enemy {
         this.lineTo(4, 2);
         this.lineTo(4, 1);
         this.lineTo(3, 1);
-
         this.lineTo(3, 0);
         this.lineTo(2, 0);
         this.lineTo(2, 1);
