@@ -44,9 +44,9 @@ class Enemy2 extends Enemy {
         this.ctx.fill();
 
         this.ctx.fillStyle = 'black';
-        this.ctx.fillRect(this.offsetX + this.length * 3, this.offsetY + this.length * 3, this.length * 2, this.length * 1);
-        this.ctx.fillRect(this.offsetX + this.length * 7, this.offsetY + this.length * 3, this.length * 2, this.length * 1);
-        this.ctx.fillRect(this.offsetX + this.length * 5, this.offsetY + this.length * 5, this.length * 2, this.length * 1);
+        this.fillRect(3, 3, 2, 1);
+        this.fillRect(7, 3, 2, 1);
+        this.fillRect(5, 5, 2, 1);
     }
 
     drawShape2() {
@@ -93,9 +93,9 @@ class Enemy2 extends Enemy {
         this.ctx.fill();
 
         this.ctx.fillStyle = 'black';
-        this.ctx.fillRect(this.offsetX + this.length * 3, this.offsetY + this.length * 3, this.length * 2, this.length * 1);
-        this.ctx.fillRect(this.offsetX + this.length * 7, this.offsetY + this.length * 3, this.length * 2, this.length * 1);
-        this.ctx.fillRect(this.offsetX + this.length * 5, this.offsetY + this.length * 5, this.length * 2, this.length * 1);
+        this.fillRect(3, 3, 2, 1);
+        this.fillRect(7, 3, 2, 1);
+        this.fillRect(5, 5, 2, 1);
     }
 
 }
