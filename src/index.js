@@ -6,6 +6,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 let direction = null;
+let shoot = false;
 
 document.onkeydown = function (e) {
     switch (e.code) {
@@ -16,18 +17,34 @@ document.onkeydown = function (e) {
             direction = RIGHT;
             break;
         case SPACE:
+            shoot = true;
             break;
     }
 }
 
-const canon = new Canon(ctx, 0, 100);
+const canon = new Canon(ctx, 0, 300);
 canon.draw();
 
 let amount = 0;
 let moveValue = 0;
-let speed = 3;
+let speed = 4;
 
 function main() {
+    ctx.clearRect(0, 0, 500, 400);
+    if (shoot === true) {
+        canon.shoot();
+        shoot = false;
+    }
+
+    if (canon.shot !== null) {
+        const canMove = canon.shot.move(0, -1 * speed);
+        if (canMove) {
+            canon.shot.draw();
+        } else {
+            canon.shot = null;
+        }
+    }
+
     if (direction) {
         amount = 10;
         if (direction === LEFT) {
@@ -40,13 +57,12 @@ function main() {
         direction = null;
         let canMove = canon.move(moveValue * speed);
         if (canMove) {
-            ctx.clearRect(0, 0, 500, 400);
-            canon.draw();
             amount--;
         } else {
             amount = 0;
         }
     }
+    canon.draw();
 
     requestAnimationFrame(main);
 }
