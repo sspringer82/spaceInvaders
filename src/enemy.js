@@ -6,6 +6,17 @@ class Enemy {
         this.length = length;
     }
 
+    move(x = 0, y = 0) {
+        const offsetX = this.offsetX + x;
+        const offsetY = this.offsetY + y;
+        if (offsetX >= 0 && offsetY >= 0 && offsetX + this.size <= 502) {
+            this.offsetX = offsetX;
+            this.offsetY = offsetY;
+            return true;
+        }
+        return false;
+    }
+
     moveTo(x, y) {
         this.ctx.moveTo(this.offsetX + this.length * x, this.offsetY + this.length * y);
     }

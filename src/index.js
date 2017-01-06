@@ -1,23 +1,53 @@
+const LEFT = 'ArrowLeft';
+const RIGHT = 'ArrowRight';
+const SPACE = 'Space';
+
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-const e1s1 = new Enemy1(ctx, 10, 10);
-e1s1.drawShape1();
-const e1s2 = new Enemy1(ctx, 150, 10);
-e1s2.drawShape2();
+let direction = null;
 
-const e2s1 = new Enemy2(ctx, 10, 130);
-e2s1.drawShape1();
-const e2s2 = new Enemy2(ctx, 150, 130);
-e2s2.drawShape2();
+document.onkeydown = function (e) {
+    switch (e.code) {
+        case LEFT:
+            direction = LEFT;
+            break;
+        case RIGHT:
+            direction = RIGHT;
+            break;
+        case SPACE:
+            break;
+    }
+}
 
-const e3s1 = new Enemy3(ctx, 10, 260);
-e3s1.drawShape1();
-const e3s2 = new Enemy3(ctx, 150, 260);
-e3s2.drawShape2();
-
-const saucer = new Saucer(ctx, 300, 10);
-saucer.draw();
-
-const canon = new Canon(ctx, 300, 130);
+const canon = new Canon(ctx, 0, 100);
 canon.draw();
+
+let amount = 0;
+let moveValue = 0;
+let speed = 3;
+
+function main() {
+    if (direction) {
+        amount = 10;
+        if (direction === LEFT) {
+            moveValue = -1;
+        } else if (direction === RIGHT) {
+            moveValue = 1;
+        }
+    }
+    if (moveValue !== 0 && amount > 0) {
+        direction = null;
+        let canMove = canon.move(moveValue * speed);
+        if (canMove) {
+            ctx.clearRect(0, 0, 500, 400);
+            canon.draw();
+            amount--;
+        } else {
+            amount = 0;
+        }
+    }
+
+    requestAnimationFrame(main);
+}
+main();
