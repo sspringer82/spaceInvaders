@@ -1,4 +1,4 @@
-class Enemy {
+class Item {
     constructor(context, offsetX = 0, offsetY = 0, length = 10) {
         this.ctx = context;
         this.offsetX = offsetX;

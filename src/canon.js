@@ -1,4 +1,4 @@
-class Canon extends Enemy {
+class Canon extends Item {
 
     constructor(ctx, offsetX = 0, offsetY = 0, length = 10) {
         super(ctx, offsetX, offsetY, length);

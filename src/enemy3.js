@@ -1,4 +1,4 @@
-class Enemy3 extends Enemy {
+class Enemy3 extends Item {
 
     drawShape1() {
         this.ctx.beginPath();

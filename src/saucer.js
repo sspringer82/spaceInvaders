@@ -1,4 +1,4 @@
-class Saucer extends Enemy {
+class Saucer extends Item {
 
     draw() {
         this.ctx.beginPath();
@@ -44,7 +44,6 @@ class Saucer extends Enemy {
         this.lineTo(1, 4);
         this.lineTo(1, 5);
         this.ctx.closePath();
-
         
         this.ctx.fillStyle = 'white';
         this.ctx.fill();
