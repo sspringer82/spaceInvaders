@@ -1,11 +1,16 @@
 class Enemy3 extends Item {
 
+    constructor(ctx, offsetX = 0, offsetY = 0, length = 10) {
+        super(ctx, offsetX, offsetY, length);
+        this.height = 9 * length;
+        this.width = 8 * length;
+    }
+
     drawShape1() {
         this.ctx.beginPath();
         this.moveTo(0, 4);
         this.lineTo(0, 6);
         this.lineTo(1, 6);
-        // ---
         this.lineTo(1, 7);
         this.lineTo(0, 7);
         this.lineTo(0, 8);

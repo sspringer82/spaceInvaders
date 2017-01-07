@@ -2,8 +2,9 @@ class Canon extends Item {
 
     constructor(ctx, offsetX = 0, offsetY = 0, length = 10) {
         super(ctx, offsetX, offsetY, length);
-        this.size = 13 * length;
         this.shot = null;
+        this.height = 7 * length;
+        this.width = 13 * length;
     }
 
     draw() {
@@ -33,7 +34,7 @@ class Canon extends Item {
 
     shoot() {
         if (this.shot === null) {
-            const offsetX = this.offsetX + (this.size - this.length) / 2;
+            const offsetX = this.offsetX + (this.width - this.length) / 2;
             const offsetY = this.offsetY - 30;
             this.shot = new Shot(this.ctx, offsetX, offsetY);
         }

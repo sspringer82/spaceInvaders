@@ -1,5 +1,11 @@
 class Enemy1 extends Item {
 
+    constructor(ctx, offsetX = 0, offsetY = 0, length = 10) {
+        super(ctx, offsetX, offsetY, length);
+        this.height = 8 * length;
+        this.width = 11 * length;
+    }
+
     drawShape1() {
         this.ctx.beginPath();
 
