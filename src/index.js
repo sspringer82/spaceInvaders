@@ -25,6 +25,9 @@ document.onkeydown = function (e) {
 const canon = new Canon(ctx, 0, 300);
 canon.draw();
 
+const enemy = new Enemy1(ctx, 10, 10);
+enemy.drawShape1();
+
 let amount = 0;
 let moveValue = 0;
 let speed = 4;
@@ -62,6 +65,7 @@ function main() {
             amount = 0;
         }
     }
+    enemy.drawShape1(); 
     canon.draw();
 
     requestAnimationFrame(main);
