@@ -21,3 +21,6 @@ saucer.draw();
 
 const canon = new Canon(ctx, 300, 130);
 canon.draw();
+
+const explosion = new Explosion(ctx, 300, 260);
+explosion.draw();
