@@ -4,6 +4,7 @@ class Explosion extends Item {
         super(ctx, offsetX, offsetY, length);
         this.height = 7 * length;
         this.width = 12 * length;
+        this.times = 20;
     }
 
     draw() {
