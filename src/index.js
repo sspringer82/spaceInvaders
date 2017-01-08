@@ -25,8 +25,13 @@ document.onkeydown = function (e) {
 const canon = new Canon(ctx, 0, 300);
 canon.draw();
 
-const enemy = new Enemy1(ctx, 10, 10);
-enemy.drawShape1();
+const enemies = [
+    new Enemy1(ctx, 150, 10)
+];
+
+enemies.forEach((enemy) => {
+    enemy.drawShape1();
+});
 
 let amount = 0;
 let moveValue = 0;
@@ -41,7 +46,18 @@ function main() {
 
     if (canon.shot !== null) {
         const canMove = canon.shot.move(0, -1 * speed);
-        if (canMove) {
+
+        let hit = false;
+
+        enemies.forEach((enemy) => {
+            hit = enemy.isHit(canon.shot) || hit;
+        });
+
+        if (hit) {
+            console.log('HIT!');
+        }
+
+        if (canMove && !hit) {
             canon.shot.draw();
         } else {
             canon.shot = null;
@@ -65,7 +81,9 @@ function main() {
             amount = 0;
         }
     }
-    enemy.drawShape1(); 
+    enemies.forEach((enemy) => {
+        enemy.drawShape1(); 
+    });
     canon.draw();
 
     requestAnimationFrame(main);

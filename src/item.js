@@ -30,4 +30,19 @@ class Item {
     fillRect(x, y, width, height) {
         this.ctx.fillRect(this.offsetX + this.length * x, this.offsetY + this.length * y, this.length * width, this.length * height);
     }
+
+    isHit(shot) {
+        let lowerEdge = this.offsetY + this.height;
+        let upperEdge = this.offsetY
+        let leftEdge = this.offsetX;
+        let rightEdge = this.offsetX + this.width;
+
+        if (
+            shot.offsetY > upperEdge && shot.offsetY < lowerEdge &&
+            shot.offsetX < rightEdge && shot.offsetX > leftEdge
+            ) {
+                return true;
+            }
+            return false;
+    }
 }
