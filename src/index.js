@@ -26,7 +26,12 @@ const canon = new Canon(ctx, 0, 300);
 canon.draw();
 
 const enemies = [
-    new Enemy1(ctx, 150, 10)
+    new Enemy1(ctx, 10, 10),
+    new Enemy1(ctx, 150, 10),
+    new Enemy1(ctx, 290, 10),
+    new Enemy2(ctx, 10, 120),
+    new Enemy2(ctx, 150, 120),
+    new Enemy2(ctx, 290, 120),
 ];
 
 enemies.forEach((enemy) => {
@@ -49,13 +54,13 @@ function main() {
 
         let hit = false;
 
-        enemies.forEach((enemy) => {
-            hit = enemy.isHit(canon.shot) || hit;
+        enemies.forEach((enemy, index) => {
+            const enemyIsHit = enemy.isHit(canon.shot);
+            if (enemyIsHit) {
+                enemies[index] = new Explosion(ctx, enemy.offsetX, enemy.offsetY);
+            }
+            hit = enemyIsHit || hit;
         });
-
-        if (hit) {
-            console.log('HIT!');
-        }
 
         if (canMove && !hit) {
             canon.shot.draw();
@@ -81,8 +86,17 @@ function main() {
             amount = 0;
         }
     }
-    enemies.forEach((enemy) => {
-        enemy.drawShape1(); 
+    enemies.forEach((enemy, index) => {
+        if (enemy.drawShape1) {
+            enemy.drawShape1(); 
+        } else {
+            if (enemy.times > 0) {
+                enemy.draw();
+                enemy.times--;
+            } else {
+                enemies.splice(index, 1);
+            }
+        }
     });
     canon.draw();
 
