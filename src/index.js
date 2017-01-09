@@ -22,17 +22,18 @@ document.onkeydown = function (e) {
     }
 }
 
-const canon = new Canon(ctx, 0, 300);
+const canon = new Canon(ctx, 0, 300, 3);
 canon.draw();
 
-const enemies = [
-    new Enemy1(ctx, 10, 10),
-    new Enemy1(ctx, 150, 10),
-    new Enemy1(ctx, 290, 10),
-    new Enemy2(ctx, 10, 120),
-    new Enemy2(ctx, 150, 120),
-    new Enemy2(ctx, 290, 120),
-];
+const enemies = [];
+
+for (var i = 0; i < 11; i++) {
+    enemies.push(new Enemy3(ctx, 5 + i * 45, 10, 3));
+    enemies.push(new Enemy1(ctx, 5 + i * 45, 50, 3));
+    enemies.push(new Enemy1(ctx, 5 + i * 45, 90, 3));
+    enemies.push(new Enemy2(ctx, 5 + i * 45, 130, 3));
+    enemies.push(new Enemy2(ctx, 5 + i * 45, 170, 3));
+}
 
 enemies.forEach((enemy) => {
     enemy.drawShape1();
@@ -57,7 +58,7 @@ function main() {
         enemies.forEach((enemy, index) => {
             const enemyIsHit = enemy.isHit(canon.shot);
             if (enemyIsHit) {
-                enemies[index] = new Explosion(ctx, enemy.offsetX, enemy.offsetY);
+                enemies[index] = new Explosion(ctx, enemy.offsetX, enemy.offsetY, 3);
             }
             hit = enemyIsHit || hit;
         });

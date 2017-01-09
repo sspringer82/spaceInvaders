@@ -36,7 +36,7 @@ class Canon extends Item {
         if (this.shot === null) {
             const offsetX = this.offsetX + (this.width - this.length) / 2;
             const offsetY = this.offsetY - 30;
-            this.shot = new Shot(this.ctx, offsetX, offsetY);
+            this.shot = new Shot(this.ctx, offsetX, offsetY, 3);
         }
     }
 }
