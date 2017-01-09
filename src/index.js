@@ -22,17 +22,17 @@ document.onkeydown = function (e) {
     }
 }
 
-const canon = new Canon(ctx, 0, 300, 3);
+const canon = new Canon(ctx, 0, 510, 3);
 canon.draw();
 
 const enemies = [];
 
 for (var i = 0; i < 11; i++) {
-    enemies.push(new Enemy3(ctx, 5 + i * 45, 10, 3));
-    enemies.push(new Enemy1(ctx, 5 + i * 45, 50, 3));
-    enemies.push(new Enemy1(ctx, 5 + i * 45, 90, 3));
-    enemies.push(new Enemy2(ctx, 5 + i * 45, 130, 3));
-    enemies.push(new Enemy2(ctx, 5 + i * 45, 170, 3));
+    enemies.push(new Enemy3(ctx, 5 + i * 45, 70, 3));
+    enemies.push(new Enemy1(ctx, 5 + i * 45, 110, 3));
+    enemies.push(new Enemy1(ctx, 5 + i * 45, 150, 3));
+    enemies.push(new Enemy2(ctx, 5 + i * 45, 190, 3));
+    enemies.push(new Enemy2(ctx, 5 + i * 45, 230, 3));
 }
 
 enemies.forEach((enemy) => {
