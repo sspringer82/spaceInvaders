@@ -11,7 +11,7 @@ class Item {
     move(x = 0, y = 0) {
         const offsetX = this.offsetX + x;
         const offsetY = this.offsetY + y;
-        if (offsetX >= 0 && offsetY >= 0 && offsetX + this.width <= 502) {
+        if (offsetX >= 0 && offsetY >= 0 && offsetX + this.width <= 802) {
             this.offsetX = offsetX;
             this.offsetY = offsetY;
             return true;

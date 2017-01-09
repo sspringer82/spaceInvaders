@@ -7,6 +7,7 @@ const ctx = canvas.getContext('2d');
 
 let direction = null;
 let shoot = false;
+let points = 0;
 
 document.onkeydown = function (e) {
     switch (e.code) {
@@ -44,7 +45,7 @@ let moveValue = 0;
 let speed = 4;
 
 function main() {
-    ctx.clearRect(0, 0, 500, 400);
+    ctx.clearRect(0, 0, 800, 600);
     if (shoot === true) {
         canon.shoot();
         shoot = false;
@@ -58,6 +59,7 @@ function main() {
         enemies.forEach((enemy, index) => {
             const enemyIsHit = enemy.isHit(canon.shot);
             if (enemyIsHit) {
+                points += enemy.points;
                 enemies[index] = new Explosion(ctx, enemy.offsetX, enemy.offsetY, 3);
             }
             hit = enemyIsHit || hit;

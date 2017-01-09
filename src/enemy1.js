@@ -4,6 +4,7 @@ class Enemy1 extends Item {
         super(ctx, offsetX, offsetY, length);
         this.height = 8 * length;
         this.width = 11 * length;
+        this.points = 20;
     }
 
     drawShape1() {
