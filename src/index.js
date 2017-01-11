@@ -8,6 +8,11 @@ const ctx = canvas.getContext('2d');
 let direction = null;
 let shoot = false;
 let points = 0;
+let moveHorizontal = 300;
+let moveVertical = 10;
+let moveCurrentHorizontal = 0;
+let moveDirection = 1;
+let enemySpeed = 1;
 
 document.onkeydown = function (e) {
     switch (e.code) {
@@ -71,6 +76,15 @@ function main() {
             canon.shot = null;
         }
     }
+
+/*enemy move */
+    if (moveCurrentHorizontal >= moveHorizontal || moveCurrentHorizontal < 0) {
+        moveDirection *= -1;
+    }
+    enemies.forEach((enemy) => {
+        enemy.move(enemySpeed * moveDirection)
+    });
+    moveCurrentHorizontal += moveDirection;
 
     if (direction) {
         amount = 10;
