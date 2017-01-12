@@ -117,6 +117,23 @@ function main() {
     });
     canon.draw();
 
+    ctx.font = '32px serif';
+    ctx.fillStyle = 'white';
+    ctx.fillText('SCORE', 80, 30);
+    let formattedPoints = '';
+    switch (true) {
+        case points < 10:
+            formattedPoints += '000' + points;
+            break;
+        case points < 100:
+            formattedPoints += '00' + points;
+            break;
+        case points < 1000:
+            formattedPoints += '0' + points;
+            break;
+    }
+    ctx.fillText(formattedPoints, 100, 60);
+
     requestAnimationFrame(main);
 }
 main();
