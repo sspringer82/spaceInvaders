@@ -78,11 +78,13 @@ function main() {
     }
 
 /*enemy move */
+    let y = 0;
     if (moveCurrentHorizontal >= moveHorizontal || moveCurrentHorizontal < 0) {
         moveDirection *= -1;
+        y = 10;
     }
     enemies.forEach((enemy) => {
-        enemy.move(enemySpeed * moveDirection)
+        enemy.move(enemySpeed * moveDirection, y);
     });
     moveCurrentHorizontal += moveDirection;
 
